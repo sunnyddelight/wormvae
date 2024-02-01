@@ -112,7 +112,7 @@ target, missing_target = data_loader.generate_target_mask(full_target)
 train_dataset = data_loader.TimeSeriesDataloader(data_param_dict = inference_net_params,
                                      data = [stim_features, target, missing_target],
                                      window_size = [int(window_size * upsample_factor), window_size, window_size])
-trainloader = torch.utils.data.DataLoader(train_dataset, batch_size = 1, shuffle = True, drop_last = False)
+trainloader = torch.utils.data.DataLoader(train_dataset, batch_size = 1, shuffle = False, drop_last = False)
 
 # Model train
 loss_list, recon_loss_list, KLD_list = train(data_loader = trainloader,

@@ -84,7 +84,7 @@ class Worm_Data_Loader(Dataset):
             for it_stimu in range(stimulate_seconds.shape[0]):
                 tim1_ind = time>stimulate_seconds[it_stimu][0]
                 tim2_ind = time<stimulate_seconds[it_stimu][1]
-                odor_on = np.multiply(tim1_ind.astype(np.int),tim2_ind.astype(np.int))
+                odor_on = np.multiply(tim1_ind.astype(int),tim2_ind.astype(int))
                 stim_odor = stims[idata][it_stimu] - 1
                 odor_datasets[idata][stim_odor][:] = odor_on
                 
